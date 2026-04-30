@@ -12,31 +12,25 @@ abstract class Member {
         this.memberID = memberID;
         this.monthlyFee = monthlyFee;
     }
- 
-    abstract void showInfo();
+  abstract void showInfo();
 }
  
 class PlatinumMember extends Member implements IMemberOperation {
     int freeSessions;
- 
-    PlatinumMember() {}
- 
-    PlatinumMember(String memberID, double monthlyFee, int freeSessions) {
+  PlatinumMember() {}
+  PlatinumMember(String memberID, double monthlyFee, int freeSessions) {
         super(memberID, monthlyFee);
         this.freeSessions = freeSessions;
     }
- 
-    public double discountedFee() {
+   public double discountedFee() {
         if (monthlyFee > 8000) return monthlyFee * 0.92;
         return monthlyFee;
     }
- 
-    void showInfo() {
+  void showInfo() {
         System.out.println("Platinum: " + memberID + " " + discountedFee() + " " + freeSessions);
     }
 }
- 
-class StandardMember extends Member implements IMemberOperation {
+ class StandardMember extends Member implements IMemberOperation {
     boolean groupClassAccess;
  
     StandardMember() {}
